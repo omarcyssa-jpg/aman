@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260929-05-baae6c9","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YACgEZulLoA,0","Arial Narrow":"YAGyDvJ_4Ts,0","Arial Rounded MT Bold":"YAFcfoaHu-s,0","Arial":"YAGyDvJ_4Ts,0","Avenir Next":"YAFcfmNq6UY,0","Baloo 2":"YADK30bC6HQ,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Broken Glyph":"YADZ-exUkv0,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAFcfvtOAUY,1","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Georgia":"YAGzXkO0pEM,0","Ghost Mono":"YAHQutsX00Q,0","Hanken Grotesk":"YAFcfhwp99E,0","Helvetica Neue":"YAFcf6CtJfI,0","Helvetica":"YAFcf6CtJfI,0","IBM Plex Mono":"YAFdJkmvhGI,0","Impact":"YAFcfnjI7Vk,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YADK3zbC6RM,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Oswald":"YACgEQY10lw,0","Pacifico":"YADLjORQ1u4,0","Phantom Sans":"YAFdJvgJ5TU,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAGvf3_u0_Q,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Source Serif 4":"YACgEfdj394,0","Space Grotesk":"YADZ-dYEmhg,0","Space Mono":"YADW1-vpsoc,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","UV Display":"YAEdVfSSpYo,0","UV Sans":"YAFdJvgJ5TU,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YAD1aFjegN8,0","ui-sans-serif":"YACkoD1yZN0,0"}}');</script><script src="/_sdk/6542d56fbfe7a3eb.telemetry_sdk.js" integrity="sha512-ECdM0nK7EkwDuOqho2qxgyRQXyBHk9hZqRKMBr+Xsu6zjeHlt+qkO2N2YRiHN7Kg4e1fEHDhjIp4bGJYVypv1g=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aman Voice Agent</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --coal: #111315;
+      --coal-soft: #191c20;
+      --panel: #1d2025;
+      --panel-raised: #24282e;
+      --line: #393e46;
+      --text: #f7f7f5;
+      --muted: #aeb4bc;
+      --red: #ed2637;
+      --red-deep: #be1728;
+      --red-soft: #3a2025;
+      --red-line: #77313a;
+      --shadow: 0 22px 60px rgba(0,0,0,.34);
+    }
+
+    * { box-sizing: border-box; }
+    html { background: var(--coal); }
+    body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      background:
+        radial-gradient(circle at 8% 3%, rgba(237,38,55,.16), transparent 27rem),
+        radial-gradient(circle at 96% 100%, rgba(111,16,27,.20), transparent 30rem),
+        var(--coal);
+    }
+
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+    button:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 3px solid var(--red);
+      outline-offset: 3px;
+    }
+
+    .app-shell { width: 100%; min-height: calc(100 * min(var(--vh, 1vh), 1vh)); }
+    .topbar {
+      width: 100%;
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 22px 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand-lockup { display: flex; min-width: 0; align-items: center; }
+    .brand-wordmark { display: block; width: 182px; height: 35px; object-fit: contain; object-position: left center; }
+    .brand-compact { display: none; width: 42px; height: 42px; border-radius: 12px; object-fit: cover; object-position: center; }
+
+    .header-tools { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .connection {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 11px;
+      border: 1px solid var(--red-line);
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 700;
+    }
+    .connection-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 4px rgba(237,38,55,.14);
+    }
+    .playback-summary { color: var(--muted); font-size: .75rem; font-weight: 700; }
+    .icon-button {
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--text);
+      background: var(--panel-raised);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .icon-button:hover { transform: translateY(-1px); border-color: var(--red-line); background: var(--red-soft); }
+
+    .app-grid {
+      width: 100%;
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: minmax(310px, .9fr) minmax(440px, 1.25fr);
+      gap: 22px;
+    }
+    .surface {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(29,32,37,.94);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .transcript-panel { display: flex; flex-direction: column; min-height: 680px; padding: 20px; }
+    .panel-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .eyebrow { margin: 0 0 4px; font-size: .72rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+    .panel-title, .drawer-title, .state-title { font-family: Fraunces, serif; letter-spacing: -.04em; }
+    .panel-title { margin: 0; font-size: 1.45rem; }
+    .switch-line { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: .82rem; white-space: nowrap; }
+    .switch-line input, .toggle-row input { width: 17px; height: 17px; accent-color: var(--red); }
+
+    .transcript-scroll { flex: 1; max-height: 514px; margin-top: 19px; overflow-y: auto; padding: 3px 3px 10px; }
+    .turn { display: flex; gap: 10px; margin: 0 0 17px; }
+    .turn.user { flex-direction: row-reverse; }
+    .turn-avatar {
+      width: 30px;
+      height: 30px;
+      flex: 0 0 30px;
+      display: grid;
+      place-items: center;
+      margin-top: 3px;
+      border: 1px solid #594149;
+      border-radius: 10px;
+      color: #fff;
+      background: var(--red-deep);
+    }
+    .turn.user .turn-avatar { color: #18191c; border-color: #e8515e; background: #f5f5f3; }
+    .turn-body { max-width: 84%; }
+    .turn-meta { display: block; margin: 0 0 5px; color: var(--muted); font-size: .72rem; font-weight: 700; }
+    .turn.user .turn-meta { text-align: right; }
+    .bubble {
+      padding: 12px 14px;
+      border: 1px solid #3a3f47;
+      border-radius: 16px 16px 16px 4px;
+      background: #24282e;
+      color: var(--text);
+      line-height: 1.52;
+      font-size: .93rem;
+    }
+    .turn.user .bubble { border-color: #74343d; border-radius: 16px 16px 4px 16px; background: #3a2025; }
+    .typing-cursor { display: inline-block; width: 7px; height: 1.05em; margin-left: 3px; vertical-align: -.16em; background: var(--red); animation: blink .8s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .type-box { display: none; gap: 8px; margin-top: 12px; }
+    .type-box.is-open { display: flex; }
+    .type-box input, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 11px 12px;
+      color: var(--text);
+      background: #171a1e;
+    }
+    .send-button {
+      min-width: 43px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--red);
+      border-radius: 12px;
+      color: #fff;
+      background: var(--red-deep);
+    }
+
+    .voice-panel { position: relative; min-height: 680px; overflow: hidden; padding: 22px; }
+    .voice-panel::before {
+      content: "";
+      position: absolute;
+      top: -215px;
+      right: -140px;
+      width: 410px;
+      height: 410px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(237,38,55,.19), rgba(237,38,55,0));
+    }
+    .voice-inner { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
+    .preview-tabs {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 5px;
+      padding: 5px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: #171a1e;
+    }
+    .preview-tab {
+      min-width: 0;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      padding: 8px 5px;
+      color: var(--muted);
+      background: transparent;
+      font-size: .75rem;
+      font-weight: 700;
+      transition: background .18s ease, color .18s ease;
+    }
+    .preview-tab[aria-selected="true"] { border-color: var(--red); color: #fff; background: var(--red-deep); }
+
+    .voice-stage { display: flex; flex: 1; flex-direction: column; align-items: center; justify-content: center; padding: 34px 18px 18px; text-align: center; }
+    .state-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 20px;
+      padding: 8px 12px;
+      border: 1px solid var(--red-line);
+      border-radius: 999px;
+      color: #ffd8dc;
+      background: rgba(117,28,39,.32);
+      font-size: .8rem;
+      font-weight: 700;
+    }
+    .state-symbol { width: 10px; height: 10px; border-radius: 50%; background: var(--red); }
+    .state-symbol.processing { border-radius: 3px; animation: rotate 1s linear infinite; }
+    @keyframes rotate { to { transform: rotate(360deg); } }
+
+    .orb {
+      position: relative;
+      width: min(260px, 62vw);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      margin: 4px auto 24px;
+      border: 1px solid #9d3944;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 25%, #6b3038 0, #3a2026 43%, #17191d 100%);
+      box-shadow: inset 0 -14px 34px rgba(0,0,0,.35), 0 22px 48px rgba(237,38,55,.18);
+    }
+    .orb::before, .orb::after { content: ""; position: absolute; border: 1px solid rgba(237,38,55,.43); border-radius: inherit; }
+    .orb::before { inset: -13px; }
+    .orb::after { inset: -28px; opacity: .55; }
+    .orb.listening::before, .orb.speaking::before { animation: ring 1.8s ease-out infinite; }
+    .orb.listening::after, .orb.speaking::after { animation: ring 1.8s .45s ease-out infinite; }
+    @keyframes ring { 0%,100% { transform: scale(.98); opacity: .55; } 50% { transform: scale(1.04); opacity: .13; } }
+
+    .waveform { height: 76px; display: flex; align-items: center; justify-content: center; gap: 5px; }
+    .bar { width: 6px; height: 18px; border-radius: 10px; background: #f8f7f4; transform-origin: center; }
+    .active-wave .bar { animation: wave 900ms ease-in-out infinite alternate; }
+    .speaking-wave .bar { background: var(--red); animation-duration: 680ms; }
+    .bar:nth-child(2n) { animation-delay: 120ms; }
+    .bar:nth-child(3n) { animation-delay: 280ms; }
+    .bar:nth-child(4n) { animation-delay: 420ms; }
+    @keyframes wave { from { transform: scaleY(.35); } to { transform: scaleY(2.9); } }
+    .orb.processing { animation: think 1.4s ease-in-out infinite; }
+    @keyframes think { 50% { transform: scale(1.04); box-shadow: inset 0 -14px 32px rgba(0,0,0,.35), 0 22px 55px rgba(237,38,55,.31); } }
+
+    .state-title { margin: 0; font-size: 2.2rem; line-height: 1; }
+    .state-copy { max-width: 410px; min-height: 50px; margin: 10px auto 21px; color: var(--muted); line-height: 1.45; }
+    .primary-action, .secondary-action {
+      min-height: 47px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 14px;
+      padding: 11px 18px;
+      font-weight: 700;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .primary-action { border: 1px solid var(--red); color: #fff; background: var(--red-deep); box-shadow: 0 8px 18px rgba(237,38,55,.22); }
+    .primary-action:hover { transform: translateY(-2px); background: var(--red); }
+    .secondary-action { border: 1px solid #5a6069; color: var(--text); background: var(--panel-raised); }
+    .secondary-action:hover { border-color: var(--red-line); background: var(--red-soft); }
+    .state-action-slot > * { display: none; }
+    .state-action-slot > *.is-active { display: inline-flex; }
+
+    .repair-card { display: none; width: min(100%,490px); margin-top: 20px; padding: 12px 14px; border: 1px solid var(--red-line); border-radius: 15px; color: #ffd8dc; text-align: left; background: var(--red-soft); }
+    .repair-card.is-visible { display: flex; align-items: flex-start; gap: 9px; }
+    .repair-card p { margin: 0; line-height: 1.45; font-size: .88rem; }
+
+    .quick-zone { margin-top: auto; padding-top: 19px; border-top: 1px solid var(--line); }
+    .quick-label { margin: 0 0 10px; font-size: .77rem; font-weight: 700; text-align: left; }
+    .quick-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .quick-chip {
+      border: 1px solid #4c525b;
+      border-radius: 999px;
+      padding: 8px 11px;
+      color: #f7f7f5;
+      background: #23272d;
+      font-size: .81rem;
+      font-weight: 700;
+      transition: background .18s ease, border-color .18s ease;
+    }
+    .quick-chip:hover { border-color: var(--red); background: var(--red-soft); }
+
+    .toast {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      max-width: 345px;
+      padding: 12px 15px;
+      border: 1px solid var(--red-line);
+      border-radius: 14px;
+      color: #ffe8eb;
+      background: #2e1c21;
+      box-shadow: 0 16px 35px rgba(0,0,0,.35);
+      transform: translateY(130%);
+      opacity: 0;
+      transition: .25s ease;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    .drawer-backdrop { position: fixed; inset: 0; z-index: 29; display: none; background: rgba(0,0,0,.62); }
+    .drawer-backdrop.open { display: block; }
+    .settings-drawer {
+      position: fixed;
+      z-index: 30;
+      top: 0;
+      right: 0;
+      width: min(405px,100%);
+      height: calc(100 * min(var(--vh, 1vh), 1vh));
+      padding: 24px;
+      overflow-y: auto;
+      color: var(--text);
+      background: #171a1e;
+      box-shadow: -16px 0 45px rgba(0,0,0,.44);
+      transform: translateX(105%);
+      transition: transform .28s ease;
+    }
+    .settings-drawer.open { transform: translateX(0); }
+    .drawer-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 25px; }
+    .drawer-title { margin: 0; font-size: 1.7rem; }
+    .setting-group { margin: 0 0 22px; }
+    .setting-label { display: block; margin-bottom: 8px; font-size: .88rem; font-weight: 700; }
+    .setting-help { display: block; margin: 7px 0 0; color: var(--muted); font-size: .79rem; }
+    input[type="range"] { width: 100%; accent-color: var(--red); }
+    .toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 14px 0; border-top: 1px solid var(--line); }
+
+    @media (max-width: 880px) {
+      .app-grid { grid-template-columns: 1fr; }
+      .voice-panel { min-height: 610px; order: -1; }
+      .transcript-panel { min-height: 500px; }
+      .transcript-scroll { max-height: 390px; }
+    }
+    @media (max-width: 520px) {
+      .topbar, .app-grid { padding-left: 14px; padding-right: 14px; }
+      .topbar { padding-top: 14px; }
+      .brand-wordmark { display: none; }
+      .brand-compact { display: block; }
+      .connection, .playback-summary { display: none; }
+      .app-grid { gap: 14px; padding-top: 14px; padding-bottom: 14px; }
+      .voice-panel, .transcript-panel { padding: 16px; border-radius: 19px; }
+      .preview-tab { font-size: .67rem; }
+      .state-title { font-size: 1.9rem; }
+      .orb { width: min(224px,65vw); }
+      .switch-line { white-space: normal; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+    }
+    body.reduce-motion *, body.reduce-motion *::before, body.reduce-motion *::after { animation: none !important; transition-duration: .01ms !important; }
+  </style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/6c2ecc939521f244.data_sdk.js" type="text/javascript" integrity="sha512-gRx8s+XsZDN6mSIQu2sivLZysbV0WHhb5kXNUWlgVb5lCMU1foJYukyMEDPv8Tnoocb8iwqB4XdRrWc7oEGzIQ=="></script>
+  <script src="/_sdk/6bf4579cc4c25151.editing_sdk.js" type="text/javascript" integrity="sha512-12l4JxmokLfWaGAHNO68l5Ev8ahSshUKfuxnYUB8nkqSU1+WiCvimsPjHzPjw1k7DcHL+eZ+K9Bld04jnd5gkg=="></script>
+  <script src="/_sdk/ddcab3e45959c817.resizing_sdk.js" type="text/javascript" integrity="sha512-VAviUKfZVzugWBSeULYjSljTX+nb84wc6Zzbx5GQaQgh6X2ISSjXi8eIiCDGdwDh10esJMY0+QFQgUy9NcrTlQ=="></script>
+ </head>
+ <body data-template-id="__page-root" style="background: rgb(17, 19, 21);">
+  <div class="app-shell">
+   <header class="topbar">
+    <div class="brand-lockup" aria-label="Aman"><img data-template-id="aman-wordmark" class="canva-image brand-wordmark" loading="lazy" src="canva://MAHWlFhGO_4/1" alt="Aman wordmark with red geometric A and white lettering"> <img data-template-id="aman-compact-mark" class="canva-image brand-compact" loading="lazy" src="canva://MAHWlMX01Sc/1" alt="Red Aman geometric A mark">
+    </div>
+    <div class="header-tools">
+     <div data-template-id="connection-status" class="canva-tag connection" style="background: rgb(58, 32, 37); color: rgb(255, 216, 220);"><span class="connection-dot" aria-hidden="true"></span> <span data-template-id="connection-status-label" class="canva-text" style="color: rgb(255, 216, 220); font-weight: 700; font-style: normal; font-size: 16px;">Aman connected</span>
+     </div><span id="playback-summary" class="playback-summary">1× · Calm</span> <button id="settings-button" data-template-id="settings-button" class="canva-button icon-button" type="button" aria-label="Open settings" aria-controls="settings-drawer" aria-expanded="false" style="background: rgb(36, 40, 46); color: rgb(247, 247, 245);"> <i data-lucide="settings-2" width="19" height="19"></i> </button>
+    </div>
+   </header>
+   <main class="app-grid">
+    <section class="surface transcript-panel" aria-labelledby="conversation-title">
+     <div class="panel-heading">
+      <div>
+       <p data-template-id="conversation-eyebrow" class="canva-text eyebrow" style="color: rgb(244, 90, 104); font-weight: 700; font-style: normal; font-size: 16px; letter-spacing: 0.1rem;">Aman voice conversation</p>
+       <h1 data-template-id="conversation-title" id="conversation-title" class="canva-text panel-title" style="color: rgb(247, 247, 245); font-weight: 700; font-style: normal; font-size: 32px;">Your conversation</h1>
+      </div><label class="switch-line" for="transcript-toggle"> <input id="transcript-toggle" type="checkbox" checked=""> <span data-template-id="live-transcript-label" class="canva-text" style="color: rgb(174, 180, 188); font-weight: 600; font-style: normal; font-size: 16px;">Live transcript</span> </label>
+     </div>
+     <div id="transcript-scroll" class="transcript-scroll" aria-live="polite">
+      <article class="turn agent">
+       <div class="turn-avatar" aria-hidden="true">
+        <i data-lucide="sparkles" width="15" height="15"></i>
+       </div>
+       <div class="turn-body"><span data-template-id="agent-turn-label" class="canva-text turn-meta" style="color: rgb(174, 180, 188); font-weight: 700; font-style: normal; font-size: 16px;">Aman</span>
+        <div data-template-id="agent-turn-one" class="canva-text bubble" style="background: rgb(36, 40, 46); color: rgb(247, 247, 245); font-weight: 400; font-style: normal; font-size: 16px;">Hello. I’m here to help you think through what’s next. What would you like to explore?</div>
+       </div>
+      </article>
+      <article class="turn user">
+       <div class="turn-avatar" aria-hidden="true">
+        <i data-lucide="user-round" width="15" height="15"></i>
+       </div>
+       <div class="turn-body"><span data-template-id="user-turn-label" class="canva-text turn-meta" style="color: rgb(174, 180, 188); font-weight: 700; font-style: normal; font-size: 16px;">You</span>
+        <div data-template-id="user-turn-one" class="canva-text bubble" style="background: rgb(58, 32, 37); color: rgb(247, 247, 245); font-weight: 400; font-style: normal; font-size: 16px;">I need a quick way to organise a few priorities for today.</div>
+       </div>
+      </article>
+      <article class="turn agent">
+       <div class="turn-avatar" aria-hidden="true">
+        <i data-lucide="sparkles" width="15" height="15"></i>
+       </div>
+       <div class="turn-body"><span data-template-id="agent-turn-label-two" class="canva-text turn-meta" style="color: rgb(174, 180, 188); font-weight: 700; font-style: normal; font-size: 16px;">Aman</span>
+        <div data-template-id="agent-turn-two" class="canva-text bubble" style="background: rgb(36, 40, 46); color: rgb(247, 247, 245); font-weight: 400; font-style: normal; font-size: 16px;">Absolutely. Tell me what’s competing for your attention, and we’ll make a practical plan.</div>
+       </div>
+      </article>
+     </div>
+     <form id="type-form" class="type-box" aria-label="Type a message"><label class="sr-only" for="typed-message">Type your message</label> <input id="typed-message" type="text" placeholder="Type a message"> <button class="send-button" type="submit" aria-label="Send typed message"><i data-lucide="send" width="17" height="17"></i></button>
+     </form>
+    </section>
+    <section class="surface voice-panel" aria-labelledby="voice-stage-title">
+     <div class="voice-inner">
+      <nav class="preview-tabs" aria-label="Voice state preview" role="tablist"><button data-state="idle" data-template-id="preview-idle" class="canva-button preview-tab" type="button" role="tab" aria-selected="false" style="color: rgb(174, 180, 188); font-weight: 700; font-style: normal; font-size: 16px;">Idle</button> <button data-state="listening" data-template-id="preview-listening" class="canva-button preview-tab" type="button" role="tab" aria-selected="true" style="background: rgb(190, 23, 40); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Listening</button> <button data-state="processing" data-template-id="preview-processing" class="canva-button preview-tab" type="button" role="tab" aria-selected="false" style="color: rgb(174, 180, 188); font-weight: 700; font-style: normal; font-size: 16px;">Thinking</button> <button data-state="speaking" data-template-id="preview-speaking" class="canva-button preview-tab" type="button" role="tab" aria-selected="false" style="color: rgb(174, 180, 188); font-weight: 700; font-style: normal; font-size: 16px;">Speaking</button> <button data-state="repair" data-template-id="preview-repair" class="canva-button preview-tab" type="button" role="tab" aria-selected="false" style="color: rgb(174, 180, 188); font-weight: 700; font-style: normal; font-size: 16px;">Repair</button>
+      </nav>
+      <div class="voice-stage">
+       <div id="state-badge" class="state-badge"><span id="state-symbol" class="state-symbol" aria-hidden="true"></span> <span id="badge-text">Microphone active</span>
+       </div>
+       <div id="voice-orb" class="orb listening" aria-hidden="true">
+        <div id="waveform" class="waveform active-wave"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </div>
+       </div>
+       <h2 id="voice-stage-title" class="state-title" aria-live="polite">Listening</h2>
+       <p id="state-copy" class="state-copy">I’m ready when you are. Speak naturally, and I’ll keep up.</p>
+       <div class="state-action-slot"><button id="start-button" data-template-id="start-button" class="canva-button primary-action" type="button" style="background: rgb(190, 23, 40); color: rgb(255, 255, 255);"><i data-lucide="mic" width="18" height="18"></i><span data-template-id="start-button-label" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Start speaking</span></button> <button id="stop-button" data-template-id="stop-button" class="canva-button secondary-action is-active" type="button" style="background: rgb(36, 40, 46); color: rgb(247, 247, 245);"><i data-lucide="square" width="17" height="17"></i><span data-template-id="stop-button-label" class="canva-text" style="color: rgb(247, 247, 245); font-weight: 700; font-style: normal; font-size: 16px;">Stop speaking</span></button> <button id="interrupt-button" data-template-id="interrupt-button" class="canva-button primary-action" type="button" style="background: rgb(190, 23, 40); color: rgb(255, 255, 255);"><i data-lucide="hand" width="18" height="18"></i><span data-template-id="interrupt-button-label" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Tap to interrupt</span></button> <button id="retry-button" data-template-id="retry-button" class="canva-button primary-action" type="button" style="background: rgb(190, 23, 40); color: rgb(255, 255, 255);"><i data-lucide="rotate-ccw" width="18" height="18"></i><span data-template-id="retry-button-label" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Try speaking again</span></button>
+       </div>
+       <div id="repair-card" class="repair-card" role="status"><i data-lucide="message-circle-warning" width="19" height="19" aria-hidden="true"></i>
+        <p data-template-id="repair-message" class="canva-text" style="color: rgb(255, 216, 220); font-weight: 500; font-style: normal; font-size: 16px;">I didn’t quite catch that. Try again or choose an option below.</p>
+       </div>
+      </div>
+      <section class="quick-zone" aria-labelledby="quick-actions-label">
+       <p data-template-id="quick-actions-label" id="quick-actions-label" class="canva-text quick-label" style="color: rgb(174, 180, 188); font-weight: 700; font-style: normal; font-size: 16px;">Useful next steps</p>
+       <div class="quick-actions"><button id="try-again-chip" data-template-id="try-again-chip" class="canva-button quick-chip" type="button" style="background: rgb(35, 39, 45); color: rgb(247, 247, 245); font-weight: 700; font-style: normal; font-size: 16px;">Try again</button> <button id="type-instead-chip" data-template-id="type-instead-chip" class="canva-button quick-chip" type="button" style="background: rgb(35, 39, 45); color: rgb(247, 247, 245); font-weight: 700; font-style: normal; font-size: 16px;">Type instead</button> <button id="summarize-chip" data-template-id="summarize-chip" class="canva-button quick-chip" type="button" style="background: rgb(35, 39, 45); color: rgb(247, 247, 245); font-weight: 700; font-style: normal; font-size: 16px;">Summarize</button> <button id="continue-chip" data-template-id="continue-chip" class="canva-button quick-chip" type="button" style="background: rgb(35, 39, 45); color: rgb(247, 247, 245); font-weight: 700; font-style: normal; font-size: 16px;">Continue</button>
+       </div>
+      </section>
+     </div>
+    </section>
+   </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"><i data-lucide="volume-2" width="18" height="18" aria-hidden="true"></i> <span id="toast-message">Listening is active.</span>
+  </div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+  <aside id="settings-drawer" class="settings-drawer" aria-labelledby="settings-title" aria-hidden="true">
+   <div class="drawer-header">
+    <div>
+     <p data-template-id="settings-eyebrow" class="canva-text eyebrow" style="color: rgb(244, 90, 104); font-weight: 700; font-style: normal; font-size: 16px; letter-spacing: 0.1rem;">Personalise</p>
+     <h2 data-template-id="settings-title" id="settings-title" class="canva-text drawer-title" style="color: rgb(247, 247, 245); font-weight: 700; font-style: normal; font-size: 24px;">Voice settings</h2>
+    </div><button id="close-settings" class="icon-button" type="button" aria-label="Close settings"><i data-lucide="x" width="20" height="20"></i></button>
+   </div>
+   <div class="setting-group"><label data-template-id="speed-label" class="canva-text setting-label" for="speed-select" style="color: rgb(247, 247, 245); font-weight: 700; font-style: normal; font-size: 16px;">Playback speed</label> <select id="speed-select"><option value="0.8">0.8× — relaxed</option><option value="1" selected="">1× — natural</option><option value="1.2">1.2× — brisk</option></select>
+   </div>
+   <div class="setting-group"><label data-template-id="voice-label" class="canva-text setting-label" for="voice-select" style="color: rgb(247, 247, 245); font-weight: 700; font-style: normal; font-size: 16px;">Voice</label> <select id="voice-select"><option>Calm</option><option>Warm</option><option>Clear</option></select>
+   </div>
+   <div class="setting-group"><label data-template-id="volume-label" class="canva-text setting-label" for="volume-range" style="color: rgb(247, 247, 245); font-weight: 700; font-style: normal; font-size: 16px;">Volume</label> <input id="volume-range" type="range" min="0" max="100" value="70">
+    <p id="volume-value" class="setting-help">70%</p>
+   </div><label class="toggle-row" for="drawer-transcript-toggle"> <span><span data-template-id="drawer-transcript-label" class="canva-text setting-label" style="color: rgb(247, 247, 245); font-weight: 700; font-style: normal; font-size: 16px;">Show transcript</span><span data-template-id="drawer-transcript-help" class="canva-text setting-help" style="color: rgb(174, 180, 188); font-weight: 400; font-style: normal; font-size: 16px;">Keep spoken turns visible as text.</span></span> <input id="drawer-transcript-toggle" type="checkbox" checked=""> </label> <label class="toggle-row" for="earcon-toggle"> <span><span data-template-id="earcon-label" class="canva-text setting-label" style="color: rgb(247, 247, 245); font-weight: 700; font-style: normal; font-size: 16px;">Earcon cues</span><span data-template-id="earcon-help" class="canva-text setting-help" style="color: rgb(174, 180, 188); font-weight: 400; font-style: normal; font-size: 16px;">Use subtle audio cues alongside visual feedback.</span></span> <input id="earcon-toggle" type="checkbox" checked=""> </label> <label class="toggle-row" for="motion-toggle"> <span><span data-template-id="motion-label" class="canva-text setting-label" style="color: rgb(247, 247, 245); font-weight: 700; font-style: normal; font-size: 16px;">Reduced motion</span><span data-template-id="motion-help" class="canva-text setting-help" style="color: rgb(174, 180, 188); font-weight: 400; font-style: normal; font-size: 16px;">Minimise waveform and transition movement.</span></span> <input id="motion-toggle" type="checkbox"> </label>
+  </aside>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+
+      const states = {
+        idle: { title: "Ready to listen", copy: "Start a new voice turn whenever you’re ready.", badge: "Microphone standing by", action: "start" },
+        listening: { title: "Listening", copy: "I’m ready when you are. Speak naturally, and I’ll keep up.", badge: "Microphone active", action: "stop" },
+        processing: { title: "Thinking…", copy: "Got it. I’m finding the most helpful response.", badge: "Processing your request", action: "none" },
+        speaking: { title: "Speaking", copy: "I’m responding now. You can interrupt at any time.", badge: "Response playing", action: "interrupt" },
+        repair: { title: "Let’s try that again", copy: "Your conversation is still here. Choose a simple next step below.", badge: "Audio needs a little help", action: "retry" }
+      };
+
+      const tabs = [...document.querySelectorAll(".preview-tab")];
+      const orb = document.getElementById("voice-orb");
+      const waveform = document.getElementById("waveform");
+      const stageTitle = document.getElementById("voice-stage-title");
+      const stateCopy = document.getElementById("state-copy");
+      const badgeText = document.getElementById("badge-text");
+      const stateSymbol = document.getElementById("state-symbol");
+      const repairCard = document.getElementById("repair-card");
+      const transcript = document.getElementById("transcript-scroll");
+      const actionButtons = {
+        start: document.getElementById("start-button"),
+        stop: document.getElementById("stop-button"),
+        interrupt: document.getElementById("interrupt-button"),
+        retry: document.getElementById("retry-button")
+      };
+
+      let processingTimer;
+      let streamTimer;
+      let streamedTurn;
+
+      function showToast(message, icon) {
+        const toast = document.getElementById("toast");
+        document.getElementById("toast-message").textContent = message;
+        const existingIcon = toast.querySelector("svg");
+        if (existingIcon) existingIcon.remove();
+        const holder = document.createElement("i");
+        holder.setAttribute("data-lucide", icon || "volume-2");
+        holder.setAttribute("width", "18");
+        holder.setAttribute("height", "18");
+        holder.setAttribute("aria-hidden", "true");
+        toast.prepend(holder);
+        lucide.createIcons();
+        toast.classList.add("show");
+        clearTimeout(toast.dismissTimer);
+        toast.dismissTimer = setTimeout(() => toast.classList.remove("show"), 3300);
+      }
+
+      function setState(name, automated) {
+        clearTimeout(processingTimer);
+        clearInterval(streamTimer);
+        const state = states[name];
+
+        tabs.forEach(tab => tab.setAttribute("aria-selected", String(tab.dataset.state === name)));
+        stageTitle.textContent = state.title;
+        stateCopy.textContent = state.copy;
+        badgeText.textContent = state.badge;
+        stateSymbol.className = "state-symbol" + (name === "processing" ? " processing" : "");
+        orb.className = "orb " + name;
+        waveform.className = "waveform";
+        if (name === "listening") waveform.classList.add("active-wave");
+        if (name === "speaking") waveform.classList.add("active-wave", "speaking-wave");
+        repairCard.classList.toggle("is-visible", name === "repair");
+
+        Object.values(actionButtons).forEach(button => button.classList.remove("is-active"));
+        if (state.action !== "none") actionButtons[state.action].classList.add("is-active");
+
+        if (name === "processing" && automated) {
+          processingTimer = setTimeout(() => {
+            setState("speaking");
+            startStream();
+          }, 1350);
+        }
+      }
+
+      function createAgentTurn() {
+        const turn = document.createElement("article");
+        turn.className = "turn agent";
+        turn.innerHTML = '<div class="turn-avatar" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.1L5 10l5.1 1.9L12 17l1.9-5.1L19 10l-5.1-1.9L12 3Z"/></svg></div><div class="turn-body"><span class="turn-meta">Aman · responding</span><div class="bubble"><span class="streamed-copy"></span><span class="typing-cursor"></span></div></div>';
+        transcript.appendChild(turn);
+        transcript.scrollTop = transcript.scrollHeight;
+        return turn;
+      }
+
+      function startStream() {
+        const response = "A simple next step is to identify the main outcome, then we can turn it into a short, practical plan together.";
+        let index = 0;
+        streamedTurn = createAgentTurn();
+        const copy = streamedTurn.querySelector(".streamed-copy");
+        streamTimer = setInterval(() => {
+          index += 2;
+          copy.textContent = response.slice(0, index);
+          transcript.scrollTop = transcript.scrollHeight;
+          if (index >= response.length) {
+            clearInterval(streamTimer);
+            const cursor = streamedTurn.querySelector(".typing-cursor");
+            if (cursor) cursor.remove();
+            streamedTurn.querySelector(".turn-meta").textContent = "Aman";
+            showToast("Response complete. You can continue whenever you’re ready.", "check");
+          }
+        }, 42);
+      }
+
+      function interruptResponse() {
+        clearInterval(streamTimer);
+        if (streamedTurn) {
+          const cursor = streamedTurn.querySelector(".typing-cursor");
+          if (cursor) cursor.remove();
+          streamedTurn.querySelector(".turn-meta").textContent = "Aman · interrupted";
+        }
+        showToast("Response paused. Listening for you now.", "hand");
+        setState("listening");
+      }
+
+      tabs.forEach(tab => tab.addEventListener("click", () => {
+        const state = tab.dataset.state;
+        setState(state, state === "processing");
+        if (state === "speaking") startStream();
+      }));
+
+      actionButtons.start.addEventListener("click", () => { setState("listening"); showToast("Listening started.", "mic"); });
+      actionButtons.stop.addEventListener("click", () => { setState("processing", true); showToast("Voice turn captured. Thinking now.", "loader-circle"); });
+      actionButtons.interrupt.addEventListener("click", interruptResponse);
+      actionButtons.retry.addEventListener("click", () => { setState("listening"); showToast("Listening again. Take your time.", "mic"); });
+
+      document.getElementById("try-again-chip").addEventListener("click", () => { setState("listening"); showToast("Listening again.", "mic"); });
+      document.getElementById("continue-chip").addEventListener("click", () => { setState("speaking"); startStream(); });
+      document.getElementById("summarize-chip").addEventListener("click", () => {
+        setState("speaking");
+        clearInterval(streamTimer);
+        streamedTurn = createAgentTurn();
+        streamedTurn.querySelector(".streamed-copy").textContent = "So far: you want a clear next step, and we can keep the answer concise and easy to act on.";
+        streamedTurn.querySelector(".typing-cursor").remove();
+        streamedTurn.querySelector(".turn-meta").textContent = "Aman";
+        showToast("A short summary was added to the conversation.", "file-text");
+      });
+      document.getElementById("type-instead-chip").addEventListener("click", () => {
+        document.getElementById("type-form").classList.add("is-open");
+        document.getElementById("typed-message").focus();
+        showToast("Type your message instead.", "keyboard");
+      });
+
+      document.getElementById("type-form").addEventListener("submit", event => {
+        event.preventDefault();
+        const input = document.getElementById("typed-message");
+        const message = input.value.trim();
+        if (!message) return;
+        const turn = document.createElement("article");
+        turn.className = "turn user";
+        turn.innerHTML = '<div class="turn-avatar" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21a8 8 0 1 0-16 0"/><circle cx="12" cy="7" r="4"/></svg></div><div class="turn-body"><span class="turn-meta">You · typed</span><div class="bubble"></div></div>';
+        turn.querySelector(".bubble").textContent = message;
+        transcript.appendChild(turn);
+        transcript.scrollTop = transcript.scrollHeight;
+        input.value = "";
+        setState("processing", true);
+      });
+
+      const settingsButton = document.getElementById("settings-button");
+      const drawer = document.getElementById("settings-drawer");
+      const backdrop = document.getElementById("drawer-backdrop");
+
+      function toggleDrawer(open) {
+        drawer.classList.toggle("open", open);
+        backdrop.classList.toggle("open", open);
+        drawer.setAttribute("aria-hidden", String(!open));
+        settingsButton.setAttribute("aria-expanded", String(open));
+        if (open) document.getElementById("speed-select").focus();
+        else settingsButton.focus();
+      }
+
+      settingsButton.addEventListener("click", () => toggleDrawer(true));
+      document.getElementById("close-settings").addEventListener("click", () => toggleDrawer(false));
+      backdrop.addEventListener("click", () => toggleDrawer(false));
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && drawer.classList.contains("open")) toggleDrawer(false);
+      });
+
+      const transcriptToggle = document.getElementById("transcript-toggle");
+      const drawerTranscriptToggle = document.getElementById("drawer-transcript-toggle");
+      function syncTranscript(checked) {
+        transcriptToggle.checked = checked;
+        drawerTranscriptToggle.checked = checked;
+        document.querySelector(".transcript-panel").style.display = checked ? "flex" : "none";
+        showToast(checked ? "Live transcript shown." : "Live transcript hidden.", "file-text");
+      }
+      transcriptToggle.addEventListener("change", () => syncTranscript(transcriptToggle.checked));
+      drawerTranscriptToggle.addEventListener("change", () => syncTranscript(drawerTranscriptToggle.checked));
+
+      const speed = document.getElementById("speed-select");
+      const voice = document.getElementById("voice-select");
+      function updateSummary() { document.getElementById("playback-summary").textContent = speed.value + "× · " + voice.value; }
+      speed.addEventListener("change", () => { updateSummary(); showToast("Playback speed set to " + speed.value + "×.", "gauge"); });
+      voice.addEventListener("change", () => { updateSummary(); showToast(voice.value + " voice selected.", "audio-lines"); });
+      document.getElementById("volume-range").addEventListener("input", event => document.getElementById("volume-value").textContent = event.target.value + "%");
+      document.getElementById("earcon-toggle").addEventListener("change", event => showToast(event.target.checked ? "Earcon cues are on. Visual cues remain available." : "Earcon cues are off.", event.target.checked ? "volume-2" : "volume-x"));
+      document.getElementById("motion-toggle").addEventListener("change", event => {
+        document.body.classList.toggle("reduce-motion", event.target.checked);
+        showToast(event.target.checked ? "Reduced motion is on." : "Motion is back on.", "accessibility");
+      });
+
+      setState("listening");
+    });
+  </script>
+ 
+</body></html>
